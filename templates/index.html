@@ -1,0 +1,29 @@
+{# Index html extends dari base html dan berisi untuk menampilkan semua data di databse sesuai query dalam bentuk tabel #}
+
+{% extends "base.html" %}
+
+{% block page_title %}
+	{{page_title}}
+{% endblock page_title %}
+
+
+{% block contents %}
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col"><a href="{% url 'indikator:misi' %}">Misi</a></th>
+	      <th scope="col"><a href="{% url 'indikator:tujuan' %}">Tujuan</a></th>
+	      <th scope="col"><a href="{% url 'indikator:sasaran' %}">Sasaran</a></th>
+	      <th scope="col"><a href="{% url 'indikator:indikator' %}">Indikator</a></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+		    <tr>
+		      <td>{% for misi in misi %}{{misi}}{% endfor %}</td>
+		      <td>{% for tujuan in tujuan %}{{tujuan}}{% endfor %}</td>
+		      <td>{% for sasaran in sasaran %}{{sasaran}}{% endfor %}</td>
+   		      <td>{% for indikator in indikator %}{{indikator}}{% endfor %}</td>
+		    </tr>
+	  </tbody>
+	</table>
+{% endblock contents %}
